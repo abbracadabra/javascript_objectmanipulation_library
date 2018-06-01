@@ -30,6 +30,10 @@ $0.override($0,{
 		if(typeof namespacepath!="string"){
 			throw("parameter type mismatch");
 		}
+		var reg=/^\.|\.$| /;
+		if(namespacepath.match(reg)!=null){
+			throw("illegal namespacepath");
+		}
 		namespacepath=namespacepath.replace('/ /g','');
 		var _path=namespacepath.split('.');
 		var current=window;
